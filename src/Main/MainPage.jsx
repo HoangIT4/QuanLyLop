@@ -24,11 +24,17 @@ function MainPage() {
   ]);
 
   return (
-    <div style={{ padding: 20 }}>
+    <div style={{ padding: 40 }}>
       <h1>Quản lý trường học</h1>
-      <button onClick={() => setPage('class')}>Quản lý Lớp học</button>
-      <button onClick={() => setPage('student')}>Quản lý Học sinh</button>
-      <button onClick={() => setPage('stat')}>Báo cáo - Thống kê</button>
+      <button style={{ margin: 20 }} onClick={() => setPage('class')}>
+        Quản lý Lớp học
+      </button>
+      <button style={{ margin: 20 }} onClick={() => setPage('student')}>
+        Quản lý Học sinh
+      </button>
+      <button style={{ margin: 20 }} onClick={() => setPage('stat')}>
+        Báo cáo - Thống kê
+      </button>
 
       <div style={{ marginTop: 30 }}>
         {page === 'class' && (

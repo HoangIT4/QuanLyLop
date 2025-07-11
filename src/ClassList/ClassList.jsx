@@ -19,19 +19,36 @@ function ClassList({ classes, setClasses, students, setStudents }) {
   return (
     <div>
       <h2>Danh sách lớp học</h2>
-      <ul>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <input
+          value={newClass}
+          style={{ width: '100%' }}
+          onChange={(e) => setNewClass(e.target.value)}
+          placeholder="Tên lớp mới"
+        />
+        <button onClick={addClass}>Thêm lớp</button>
+      </div>
+
+      <ul
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          gap: '10px',
+        }}
+      >
         {classes.map((c) => (
           <li key={c.id}>
-            {c.name} <button onClick={() => deleteClass(c.id)}>Xóa lớp</button>
+            {c.name}{' '}
+            <button
+              style={{ marginLeft: '20px', padding: '5px 10px' }}
+              onClick={() => deleteClass(c.id)}
+            >
+              Xóa lớp
+            </button>
           </li>
         ))}
       </ul>
-      <input
-        value={newClass}
-        onChange={(e) => setNewClass(e.target.value)}
-        placeholder="Tên lớp mới"
-      />
-      <button onClick={addClass}>Thêm lớp</button>
     </div>
   );
 }

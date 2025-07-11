@@ -9,45 +9,76 @@ function StatisticPage({ classes, students }) {
   });
 
   return (
-    <div>
-      <h3>Top 3 học sinh điểm cao nhất:</h3>
-      <ul>
-        {top3.map((s) => (
-          <li key={s.id}>
-            {s.name} - {s.score} điểm
-          </li>
-        ))}
-      </ul>
-
-      <h3>Sắp xếp điểm giảm dần:</h3>
-      <ul>
-        {sortedDesc.map((s) => (
-          <li key={s.id}>
-            {s.name} - {s.score}
-          </li>
-        ))}
-      </ul>
-
-      <h3>Sắp xếp điểm tăng dần:</h3>
-      <ul>
-        {sortedAsc.map((s) => (
-          <li key={s.id}>
-            {s.name} - {s.score}
-          </li>
-        ))}
-      </ul>
-
-      <h3>Sắp xếp lớp theo số lượng học sinh:</h3>
-      <ul>
-        {sortedClasses.map((c) => {
-          const count = students.filter((s) => s.classId === c.id).length;
-          return (
-            <li key={c.id}>
-              {c.name} - {count} học sinh
+    <div style={{ display: 'flex', justifyContent: 'space-between', margin: 40 }}>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingRight: '40px',
+        }}
+      >
+        <h3>Top 3 học sinh điểm cao nhất:</h3>
+        <ul>
+          {top3.map((s) => (
+            <li key={s.id}>
+              {s.name} - {s.score} điểm
             </li>
-          );
-        })}
-      </ul>
+          ))}
+        </ul>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingRight: '40px',
+        }}
+      >
+        <h3>Sắp xếp điểm giảm dần:</h3>
+        <ul>
+          {sortedDesc.map((s) => (
+            <li key={s.id}>
+              {s.name} - {s.score}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingRight: '40px',
+        }}
+      >
+        <h3>Sắp xếp điểm tăng dần:</h3>
+        <ul>
+          {sortedAsc.map((s) => (
+            <li key={s.id}>
+              {s.name} - {s.score}
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          paddingRight: '40px',
+        }}
+      >
+        <h3>Sắp xếp lớp theo số lượng học sinh:</h3>
+        <ul>
+          {sortedClasses.map((c) => {
+            const count = students.filter((s) => s.classId === c.id).length;
+            return (
+              <li key={c.id}>
+                {c.name} - {count} học sinh
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
